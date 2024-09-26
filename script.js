@@ -1,18 +1,18 @@
 
-	mapboxgl.accessToken = 'pk.eyJ1IjoiamNhcnJveW9zLXRlYWNoaW5nIiwiYSI6ImNsd21jMXd6NDBvbWsyanJpNTNnOTI5eHAifQ.P30PvmCHYGYABjc-tb4aQA';
+	mapboxgl.accessToken = 'pk.eyJ1IjoibGVsZXNlcm5hIiwiYSI6ImNtMWlqdnRoaDBlcnAyam9ic3NpZzBiYTAifQ.LXv_g94FmiFOsnfcxLPqyA';
     const map = new mapboxgl.Map({
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        style: 'mapbox://styles/jcarroyos-teaching/clwmd0t66040p01nx4zu72443',
+        style: 'mapbox://styles/leleserna/cm1ik0jds009s01p6b9tk1j8g',
         zoom: 16.5,
-        center: [-73.430379, 5.451004],
+        center: [-74.08109242214857, 4.6532280794092715],
         pitch: 30,
         antialias: true // create the gl context with MSAA antialiasing, so custom layers are antialiased
     });
 
     // parameters to ensure the model is georeferenced correctly on the map
-    const modelOrigin = [-73.430379, 5.451004];
-    const modelAltitude = 2710;
+    const modelOrigin = [-74.08109242214857, 4.6532280794092715];
+    const modelAltitude = 0;    
     const modelRotate = [Math.PI / 2, 0, 0];
 
     const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
@@ -96,9 +96,9 @@
                 )
                 .scale(
                     new THREE.Vector3(
-                        modelTransform.scale,
-                        -modelTransform.scale,
-                        modelTransform.scale
+                        modelTransform.scale * 100,
+                        -modelTransform.scale * 100,
+                        modelTransform.scale * 100
                     )
                 )
                 .multiply(rotationX)
